@@ -71,8 +71,11 @@ def display_user_form():
                 if dot or at > 1:
                     email_error = "Must contain only one '.' and one '@'."
                     email = email
-    if password != password2:
-        pass_error2 = "Passwords do not match"
+    if not pass_error:
+        if password2 != password:
+            pass_error2 = "Passwords do not match"
+            password2 = ""
+    if pass_error:
         password2 = ""
     if not email:
         email_error = ""
